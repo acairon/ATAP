@@ -1,0 +1,10 @@
+# Ignorar archivos de configuración locales
+.env
+.config
+
+# Ignorar archivos temporales
+*.tmp
+
+# Ignorar directorios generados automáticamente
+node_modules/
+dist/
