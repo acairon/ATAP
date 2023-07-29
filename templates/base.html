@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Sitio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+</head>
+<body>
+    <nav class="top-nav">
+        <!-- Botón de hamburguesa -->
+        <div class="menu-btn">
+            <div class="menu-btn-burger"></div>
+        </div>
+
+        <!-- Logo o nombre de la aplicación -->
+        <div class="logo">
+            Mi Sitio
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+            {% if user.is_authenticated %}
+                <span>Bienvenido, {{ user.username }}</span>
+                <a href="{% url 'logout' %}" class="logout-btn">Cerrar Sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar Sesión</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Menú de navegación vertical -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+            <!-- Agregar más elementos del menú aquí -->
+        </ul>
+    </aside>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- JavaScript para manejar el menú de hamburguesa -->
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        const logoutBtn = document.querySelector('.logout-btn');
+        logoutBtn.addEventListener('click', () => {
+            // Aquí puedes agregar la lógica para cerrar sesión
+            alert('Cerrando sesión...');
+        });
+    </script>
+</body>
+</html>

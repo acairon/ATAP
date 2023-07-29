@@ -1,0 +1,123 @@
+/* CSS base.css */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra de navegación superior */
+.top-nav {
+    background-color: #007bff; /* Azul oscuro */
+    color: #fff; /* Texto en blanco */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-menu a {
+    color: #fff; /* Texto en blanco */
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+/* Menú de navegación vertical */
+.sidebar {
+    background-color: #f0f0f0; /* Gris claro */
+    position: fixed;
+    top: 0;
+    left: -250px; /* Esconder el menú por defecto */
+    width: 250px;
+    height: 100%;
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0; /* Mostrar el menú cuando está activo */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    color: #333; /* Texto en negro */
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar a:hover {
+    background-color: #ddd; /* Gris más claro al hacer hover */
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 270px; /* Ajustar el margen para dejar espacio para el menú */
+    margin-top: 40px;
+}
+
+/* Botón de hamburguesa para pantallas pequeñas */
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    display: none; /* Ocultar el botón en pantallas grandes */
+}
+
+.menu-btn-burger,
+.menu-btn-burger::before,
+.menu-btn-burger::after {
+    content: '';
+    display: block;
+    background-color: #fff; /* Color blanco */
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+}
+
+.menu-btn-burger::before {
+    transform: translateY(-8px);
+}
+
+.menu-btn-burger::after {
+    transform: translateY(5px);
+}
+
+.sidebar.active + .main-content {
+    margin-left: 20px; /* Ajustar el margen cuando el menú está activo */
+}
+
+/* Mostrar el botón de hamburguesa en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .top-nav {
+        justify-content: space-between;
+    }
+
+    .user-menu {
+        display: none; /* Ocultar el menú de usuario en pantallas pequeñas */
+    }
+
+    .main-content {
+        margin-left: 20px;
+    }
+}

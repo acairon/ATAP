@@ -18,7 +18,9 @@ Esta es una aplicación de gestión de tareas desarrollada en Django que te perm
 - Django 3.x instalado
 - Base de datos Oracle (puede configurarse localmente o en un servidor remoto)
 
+# Aplicacion oracle APEX
 
+```` https://gb3dc7bde953eb1-bklbgfh5bq28z4ma.adb.eu-marseille-1.oraclecloudapps.com/ords/r/angel/atap/login?session=1505293820928 ````
 
 ## Contribuciones
 
