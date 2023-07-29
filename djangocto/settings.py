@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'CTOV2.apps.Ctov2Config',
+    'ATAP.apps.Ctov2Config',
 ]
 
 MIDDLEWARE = [

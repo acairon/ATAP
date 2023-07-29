@@ -68,8 +68,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('comment', models.TextField()),
                 ('created_at', models.DateTimeField()),
-                ('task_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.task')),
-                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.user')),
+                ('task_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.task')),
+                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.user')),
             ],
         ),
         migrations.CreateModel(
@@ -77,56 +77,56 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('title', models.CharField(max_length=255)),
-                ('task_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.task')),
+                ('task_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.task')),
             ],
         ),
         migrations.AddField(
             model_name='task',
             name='assigned_to',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.user'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.user'),
         ),
         migrations.AddField(
             model_name='task',
             name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='created_by_tasks', to='CTOV2.user'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='created_by_tasks', to='ATAP.user'),
         ),
         migrations.AddField(
             model_name='task',
             name='project_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.project'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.project'),
         ),
         migrations.CreateModel(
             name='ProjectsUsers',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('project_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.project')),
-                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.user')),
+                ('project_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.project')),
+                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.user')),
             ],
         ),
         migrations.CreateModel(
             name='ProjectsTasks',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('project_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.project')),
-                ('task_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.task')),
+                ('project_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.project')),
+                ('task_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.task')),
             ],
         ),
         migrations.AddField(
             model_name='project',
             name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.user'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.user'),
         ),
         migrations.CreateModel(
             name='DepartmentsUsers',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('department_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.department')),
-                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.user')),
+                ('department_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.department')),
+                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.user')),
             ],
         ),
         migrations.AddField(
             model_name='department',
             name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.user'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.user'),
         ),
     ]

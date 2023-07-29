@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('CTOV2', '0001_initial'),
+        ('ATAP', '0001_initial'),
     ]
 
     operations = [
@@ -160,31 +160,31 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='tasks',
             name='assigned_to',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.users'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.users'),
         ),
         migrations.AddField(
             model_name='tasks',
             name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tasks_created_by', to='CTOV2.users'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tasks_created_by', to='ATAP.users'),
         ),
         migrations.AddField(
             model_name='tasks',
             name='project_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.projects'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.projects'),
         ),
         migrations.AddField(
             model_name='projects',
             name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.users'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.users'),
         ),
         migrations.AddField(
             model_name='departments',
             name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.users'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.users'),
         ),
         migrations.AddField(
             model_name='comments',
             name='user_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CTOV2.users'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ATAP.users'),
         ),
     ]
