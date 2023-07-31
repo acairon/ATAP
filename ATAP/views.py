@@ -1,8 +1,9 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 
 
-# Metodos de AUTH
+# Metodos de vistas AUTH
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -23,7 +24,10 @@ def logout_user(request):
 
 ########################################################################################################################
 
-#Metodos Vistas
+#Metodos Vistas (auth = True)
 
 def home(request):
-    return render(request, 'home.html')
+    if not request.user.is_authenticated: # En produccion cambiar a: if request.user.is_authenticated (sin el not)
+        return render(request, 'home.html')
+    else:
+        return redirect('login')
