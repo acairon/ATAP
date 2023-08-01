@@ -3,121 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Panel de Administración</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: teal;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 3;
-        }
-        header button {
-            background-color: #1a237e;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            position: absolute;
-            left: 20px;
-            z-index: 2;
-        }
-        .sidebar {
-            background-color: teal;
-            color: #fff;
-            height: 100vh;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: -250px;
-            padding: 20px;
-            transition: left 0.3s ease;
-        }
-        .content {
-            margin-left: 70px;
-            padding: 20px;
-            transition: margin-left 0.3s ease;
-        }
-        /* Estilos para la barra de navegación vertical */
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            display: none; /* Ocultar inicialmente la barra de navegación */
-        }
-        .sidebar li {
-            margin-bottom: 10px;
-        }
-        .sidebar a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 5px;
-            transition: background-color 0.2s;
-        }
-        .sidebar a:hover {
-            background-color: #1a237e;
-        }
+ <body>
 
-        /* Estilos para animaciones */
-        .sidebar-open {
-            display: block; /* Mostrar la barra de navegación cuando está abierta */
-            left: 0;
-        }
-        .content-open {
-            margin-left: 250px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <button id="menu-toggle">☰</button>
-        <span id="username">Nombre de usuario</span>
-    </header>
-    <div class="sidebar" id="sidebar">
-        <ul>
-            <li><a href="#">Opción 1</a></li>
-            <li><a href="#">Opción 2</a></li>
-            <li><a href="#">Opción 3</a></li>
-            <!-- Agrega más opciones aquí -->
-        </ul>
-    </div>
-    <div class="content" id="content">
-        <h1>Contenido Principal</h1>
-        <!-- Agrega aquí el contenido principal que cambiará según la opción seleccionada -->
-    </div>
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const sidebar = document.getElementById('sidebar');
-        const content = document.getElementById('content');
+{% extends 'base.html' %}
 
-        menuToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('sidebar-open');
-            content.classList.toggle('content-open');
-        });
+{% block page_tittle %}
 
-        // Mostrar la barra de navegación cuando se hace clic en el botón
-        menuToggle.addEventListener('click', function() {
-            sidebar.style.display = 'block';
-        });
+    <h1>Panel de Administración</h1>
 
-        // Ocultar el menú vertical cuando se hace clic en cualquier parte del documento
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.sidebar') && !event.target.closest('#menu-toggle')) {
-                sidebar.classList.remove('sidebar-open');
-                content.classList.remove('content-open');
-                sidebar.style.display = 'none';
-            }
-        });
-    </script>
+{% endblock %}
+
+ {% block vertical_nav %}
+
+    <li class="nav-item"><a class="nav-link active" href="blank.html"><i class="fas fa-window-maximize"></i><span>Inicio</span></a></li>
+
+ {% endblock %}
+
+
+{% block main %}
+
+{% endblock %}
 </body>
 </html>

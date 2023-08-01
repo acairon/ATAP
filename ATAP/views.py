@@ -26,8 +26,5 @@ def logout_user(request):
 
 #Metodos Vistas (auth = True)
 
-def home(request):
-    if not request.user.is_authenticated: # En produccion cambiar a: if request.user.is_authenticated (sin el not)
+def home(request): # En produccion cambiar a: if request.user.is_authenticated (sin el not)
         return render(request, 'home.html')
-    else:
-        return redirect('login')
