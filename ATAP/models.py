@@ -21,10 +21,19 @@ class Projects(models.Model):
     updated_at = models.DateTimeField()
 
 class Tasks(models.Model):
+
+    STATUS_CHOICES = [
+        ('NONE', 'None'),
+        ('ON_PROGRESS', 'On Progress'),
+        ('DONE', 'Done'),
+        ('TO_ASSIGN', 'To Assign'),
+        ('ASSIGNED', 'Assigned')
+    ]
+
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
-    status = models.CharField(max_length=255)
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES)
     start_date = models.DateField()
     end_date = models.DateField()
     assigned_to = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -33,6 +42,8 @@ class Tasks(models.Model):
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField()
 
+
+
 class Comments(models.Model):
     id = models.AutoField(primary_key=True)
     comment_type = models.CharField(max_length=255)
@@ -40,3 +51,4 @@ class Comments(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField()
     created_at = models.DateTimeField()
+

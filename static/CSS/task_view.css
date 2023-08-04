@@ -1,0 +1,29 @@
+
+.container {
+    margin: 20px;
+}
+
+.tasks-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.task-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.task-card h3 {
+    margin: 0;
+}
+
+.task-card p {
+    margin: 5px 0;
+}
+
+.btn {
+    margin-top: 10px;
+}

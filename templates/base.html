@@ -24,6 +24,9 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     {% block vertical_nav %}
+                        <li class="nav-item"><a class="nav-link active" href={% url 'home' %}><i class="fas fa-window-maximize"></i><span>Inicio</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href={% url 'create_task' %}><i class="fas fa-window-maximize"></i><span>Gestion tareas</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'task_list' %}"><i class="fas fa-window-maximize"></i><span>Visualizacion tareas</span></a></li>
 
                     {% endblock %}
                 </ul>

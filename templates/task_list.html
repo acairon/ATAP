@@ -1,0 +1,25 @@
+<!-- tasks.html -->
+{% extends 'base.html' %}
+{% load static %}
+<head>
+
+    <link rel="stylesheet" href="{% static 'CSS/task_view.css' %}">
+
+</head>
+{% block main %}
+<div class="container">
+    <h1>Lista de Tareas</h1>
+    <div class="tasks-list">
+        {% for task in tasks %}
+        <div class="task-card">
+            <h3>{{ task.name }}</h3>
+            <p>{{ task.description }}</p>
+            <p>Status: {{ task.status }}</p>
+            <p>Assigned to: {{ task.assigned_to }}</p>
+            <p>Start Date: {{ task.start_date }}</p>
+            <p>End Date: {{ task.end_date }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

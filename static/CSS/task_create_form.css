@@ -1,0 +1,64 @@
+/* Estilos generales para el formulario */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Estilos para el encabezado del formulario */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Estilos para las secciones del formulario */
+.section {
+  margin-bottom: 20px;
+}
+
+.section label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los campos del formulario */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilos para el campo de fecha */
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el botón de enviar */
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para el enlace de volver */
+a {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}

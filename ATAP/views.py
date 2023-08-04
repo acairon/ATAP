@@ -1,6 +1,10 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.utils import timezone
+
+from ATAP.forms import TaskForm
+from ATAP.models import Tasks
 
 
 # Metodos de vistas AUTH
@@ -26,5 +30,27 @@ def logout_user(request):
 
 #Metodos Vistas (auth = True)
 
-def home(request): # En produccion cambiar a: if request.user.is_authenticated (sin el not)
+def home(request):
         return render(request, 'home.html')
+
+########################################################################################################################
+
+#Metodos tareas
+
+def task_list(request):
+    tasks = Tasks.objects.all()
+    return render(request, 'task_list.html', {'tasks': tasks})
+
+def create_task(request):
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.created_by = request.user  # Asigna al usuario actual como el creador de la tarea
+            task.created_at = timezone.now()
+            task.updated_at = timezone.now()
+            task.save()
+            return redirect('task_list')
+    else:
+        form = TaskForm()
+    return render(request, 'task_form.html', {'form': form})
